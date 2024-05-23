@@ -23,5 +23,5 @@ private suspend fun doSomething() = coroutineScope {
 }
 
 val handler = CoroutineExceptionHandler { _, throwable ->
-    println("Caught $throwable")
+    println("Caught ${throwable.stackTraceToString()}")
 }

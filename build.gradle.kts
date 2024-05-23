@@ -5,8 +5,8 @@ plugins {
 	kotlin("jvm") version kotlinVersion
 	kotlin("plugin.spring") version kotlinVersion
 
-	id("org.springframework.boot") version "3.1.5"
-	id("io.spring.dependency-management") version "1.1.3"
+	id("org.springframework.boot") version "3.2.2"
+	id("io.spring.dependency-management") version "1.1.4"
 }
 
 group = "com.example"
@@ -33,6 +33,7 @@ subprojects {
 		implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 		implementation("org.jetbrains.kotlin:kotlin-reflect")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+		implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.8.0")
 
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
 

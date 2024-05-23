@@ -2,23 +2,25 @@ package structuredconcurrency
 
 import kotlinx.coroutines.*
 
-suspend fun main() {
+ fun main() = runBlocking<Unit> {
+
     doSomething()
+
 }
 
 private suspend fun doSomething() = coroutineScope {
 
-    launch {
-        delay(200)
-        println("world!")
-
-    }
-
-    launch {
-        try {
-            throw RuntimeException()
-        } catch (e: Exception) {
-            println("hello")
+    withContext(NonCancellable) {
+        launch {
+            delay(200)
+            //throw RuntimeException()
+            println("예외가 발생해도 출력!")
         }
+        throw RuntimeException()
     }
+
+    launch {
+        throw RuntimeException()
+    }
+
 }
